@@ -41,3 +41,5 @@ We could make a chatbot website, in which the user describes their eating habits
 
 ## Latest Upload:
 * i've uploaded the two files for the brain tumor detector. If you guys want to have a go. change the path files within each python file. any path you see change it to your own
+* please download the dataset first if you want to play around with the model you can find it here: https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection
+
