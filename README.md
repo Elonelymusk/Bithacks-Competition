@@ -38,3 +38,6 @@ We could make a chatbot website, in which the user describes their eating habits
 ## ToDo:
 - [ ] Decide which project to do.
 - [ ] We'll cross this bridge when we come to it.
+
+## Latest Upload:
+* i've uploaded the two files for the brain tumor detector. If you guys want to have a go. change the path files within each python file. any path you see change it to your own
