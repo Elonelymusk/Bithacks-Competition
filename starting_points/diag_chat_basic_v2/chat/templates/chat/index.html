@@ -1,0 +1,56 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+    <style>
+	body {
+	    font-family: 'Helvetica', 'Arial', sans-serif;
+	    font-size: 12pt;
+	}
+    </style>
+</head>
+<body>
+    <h2>Welcome, type a chatroom key to enter or generate a random one. </h2>
+    Once the key has been entered/generated, you will be redirected to a room with that key. <br>
+    <input id="room-name-input" type="text" size="20">
+    <input id="room-name-submit" type="button" value="Enter Room"><br>
+    <input id="rand-key-submit" type="button" value="Generate Random Room Key">
+    <hr>
+    <p>What is this website?</p>
+    <p>This is a joint project by Ariel Harmoko and Guillaume Macneil that aims to demonstrate a better, more reliable self-diagnosis website. This is achieved through a conversation between the user and a chatbot that aims to diagnose the user based on machine learning techniques like NLP (Natural Language Processing) and sentiment analysis.</p>
+    <hr>
+    <center><strong>The diagnoses provided by this website are by no means definitive. Please consult a doctor if have any health concerns.</strong></center>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+
+	document.querySelector('#rand-key-submit').onclick = function(e) {
+            var char_array = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+	    var key_array = [];
+
+	    function rand_int(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	    }
+
+	    for (i=0; i<8; i++) {
+		index = rand_int(char_array.length);
+		key_array.push(char_array[index]);
+	    }
+	    var roomName = String(key_array.join(''));
+	    window.location.pathname = '/chat/' + roomName + '/';
+	}
+    </script>
+</body>
+</html>
