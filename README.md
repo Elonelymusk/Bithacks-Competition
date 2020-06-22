@@ -37,3 +37,4 @@ As I see it, the website can be improved upon at any time. The `Nat. Language Mo
 * i've uploaded the two files for the brain tumor detector. If you guys want to have a go. change the path files within each python file. any path you see change it to your own
 * please download the dataset first if you want to play around with the model you can find it here: https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection
 * I've moved the brain tumour stuff to a sub-directory.
+* I've written a description of what to do.
