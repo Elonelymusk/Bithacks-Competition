@@ -76,7 +76,11 @@ illness_dataframe = pd.DataFrame(data=illness_dict)
 json_data = {}
 
 for symptom in symptoms:
-    json_data[symptom] = {}
+    json_data[symptom] = {
+        "patterns": "ToDo",
+        "responses": "ToDo",
+        "context_set": ""
+    }
 
 # Wrap the data in the "intents" tag
 json_data = {"intents": [json_data]} 
