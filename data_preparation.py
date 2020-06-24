@@ -49,19 +49,20 @@ for element in illness_list:
         symptom_list.append(symptom)
 # Remove duplicates (I don't know how it works, it just does)
 symptoms = list(dict.fromkeys(symptom_list))
-print(symptoms)
+#print(symptoms)
 
 # Push all symptoms to a few files --- TEMP- THIS WILL BE REMOVED
-temp_symptoms = symptoms
-break_list = [24, 23, 23, 23]
-for i in range(4):
-    with open(f"symptoms{i}.txt", "w") as symptom_file:
-        try:
-            for j in range(int(break_list[i])-1):
-                symptom_file.write(str(temp_symptoms[j]).strip() + "\n")
-                del temp_symptoms[j]
-        except IndexError:
-            pass
+#temp_symptoms = symptoms
+#break_list = [24, 23, 23, 23]
+#for i in range(4):
+#    with open(f"symptoms{i}.txt", "w") as symptom_file:
+#        try:
+#            for j in range(int(break_list[i])-1):
+#                symptom_file.write(str(temp_symptoms[j]).strip() + "\n")
+#                del temp_symptoms[j]
+#        except IndexError:
+#            pass
+#    symptom_file.close()
 
 # Find the element of greatest length in the array
 greatest = 0
@@ -101,8 +102,18 @@ def form_response(symptom):
 
 # Automate the patterns for each symtom <---- HARD
 def form_pattern(symptom):
-    return "ToDo"
-
+    return_list = []
+    for i in range(4):
+        with open(f"symptoms{i}.txt", "r") as symptom_file:
+            all_lines = symptom_file.readlines()
+            for line in all_lines:
+                line = line.replace('"', "").strip().replace("_", " ")
+                line = line.split(",")
+                #print("list line -> ", str(line[0]).strip().lower())
+                #print("symptom line -> ", str(symptom).strip().lower())
+                if str(line[0]).strip().lower() == str(symptom).strip().lower():
+                    return_list = line[1:]
+    return return_list 
 
 data_list = []
 # Put in JSON format
