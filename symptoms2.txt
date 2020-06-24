@@ -1,0 +1,22 @@
+dischromic _patches
+patches_in_throat
+irregular_sugar_level
+dehydration
+loss_of_balance
+acidity
+nausea
+swelled_lymph_nodes
+pain_behind_the_eyes
+belly_pain
+receiving_unsterile_injections
+history_of_alcohol_consumption
+phlegm
+throat_irritation
+sinus_pressure
+congestion
+fast_heart_rate
+anxiety
+slurred_speech
+muscle_weakness
+movement_stiffness
+pus_filled_pimples

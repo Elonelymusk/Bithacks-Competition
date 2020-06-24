@@ -1,0 +1,23 @@
+itching
+nodal_skin_eruptions
+shivering
+watering_from_eyes
+stomach_pain
+spotting_ urination
+high_fever
+muscle_wasting
+weight_loss
+lethargy
+blurred_and_distorted_vision
+excessive_hunger
+polyuria
+sunken_eyes
+diarrhoea
+breathlessness
+mucoid_sputum
+dizziness
+lack_of_concentration
+indigestion
+depression
+visual_disturbances
+yellowish_skin

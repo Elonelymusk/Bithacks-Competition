@@ -51,6 +51,18 @@ for element in illness_list:
 symptoms = list(dict.fromkeys(symptom_list))
 print(symptoms)
 
+# Push all symptoms to a few files --- TEMP- THIS WILL BE REMOVED
+temp_symptoms = symptoms
+break_list = [24, 23, 23, 23]
+for i in range(4):
+    with open(f"symptoms{i}.txt", "w") as symptom_file:
+        try:
+            for j in range(int(break_list[i])-1):
+                symptom_file.write(str(temp_symptoms[j]).strip() + "\n")
+                del temp_symptoms[j]
+        except IndexError:
+            pass
+
 # Find the element of greatest length in the array
 greatest = 0
 for element in illness_list:
