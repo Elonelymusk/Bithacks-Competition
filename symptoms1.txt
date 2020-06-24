@@ -1,22 +1,22 @@
-skin_rash
-chills
-burning_micturition
+skin_rash, "I have a rash on my skin", "There are red spots on my skin", "There are bumps on my skin"
+chills, "I feel cold all the time", "I don't feel warm", "I can't stop shivering"
+burning_micturition, "It hurts when I pee", "It burns when I urinate", "Peeing feels like fire"
 extra_marital_contacts
-restlessness
-obesity
-vomiting
-cough
-chest_pain
-headache
-irritability
-dark_urine
-sweating
-muscle_pain
-mild_fever
-malaise
-joint_pain
-back_pain
-toxic_look_(typhos)
-yellowing_of_eyes
+restlessness, "I can't sleep", "I can't relax", "I can't stay still"
+obesity, "I'm obese", "I'm fat", "I'm overweight"
+vomiting, "I have been vomiting", "I keep throwing up", "I can't stop puking"
+cough, "I can't stop coughing", "I keep coughing", "I have coughs"
+chest_pain, "My chest hurts", "My chest feels tight", "Something is squeezing my chest"
+headache, "My head hurts", "I have a migraine", "My head keeps hurting"
+irritability, "I can't think straight", "I feel frustrated", "I am irritated"
+dark_urine, "My pee is dark", "My urine is dark", "My pee is black"
+sweating, "I keep sweating", "I feel so hot", "I can't stop sweating"
+muscle_pain, "My muscles hurt", "My muscles are in pain", "My muscles feel tight"
+mild_fever, "I have a slight fever", "My head is too warm", "I'm too warm"
+malaise, "I feel ill", "I wanna be sick", "I don't feel well"
+joint_pain, "My joints hurt so much", "My knees are aching", "My joints are stiff"
+back_pain, "My back hurts", "I stretched my back", "My back is so tense"
+toxic_look_(typhos), "I look really pale", "I look very ill", "My skin is paling up"
+yellowing_of_eyes, "My eyes are so yellow", "There's yellow patches in my eyes", "My eyes look yellowed"
 receiving_blood_transfusion
-swelling_of_stomach
+swelling_of_stomach, "My stomach is swelling", "My stomach is getting bigger", "My stomach is bulging"
