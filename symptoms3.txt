@@ -1,13 +1,12 @@
-continuous_sneezing
-increased_appetite
-stiff_neck
-loss_of_appetite
-constipation
-distention_of_abdomen
-blood_in_sputum
-runny_nose
-rusty_sputum
-palpitations
-painful_walking
-scurring
-foul_smell_of urine
+continuous_sneezing, "I've been continously sneezing", "i have been sneezing continously", "i'm sneezing all the time"
+increased_appetite, "I've been eating a lot more", "i have an increased appetite", "i've been hungry most of the time"
+stiff_neck, "it's hard for me to look around", "my neck's pretty stiff", "its hard to move around my neck"
+loss_of_appetite, "i havent been eating a lot lately", "I lost my mood to eat", "i have a loss of appetitie"
+constipation, "I've been constipated", "I feel like there's a blockage in my stomach", "I've been passing less than three stools a week"
+distention_of_abdomen, "My stomach has been feeling a bit bloated", "I also have constipation issues", "I have a disintended stomach"
+blood_in_sputum, "I've been coughin up blood", "Blood comes out when i cough", "When i cough blood comes out"
+runny_nose, "i've been havign a runny nose", "my nose has been runny"
+rusty_sputum, "My sputum is colored", "My phlegm is colored"
+palpitations, "My heart beat is pounding", "I feel like i have palpitations", "My heart is beating so fast"
+painful_walking, "My legs hurt when i walk" , "I feel pain whenever i walk"
+foul_smell_of urine, "My urine smells off", "There's a weird smell of my urine"
