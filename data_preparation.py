@@ -26,11 +26,20 @@ for row in dataframe.iterrows():
 
 # 2nd pass at cleaning the dataset -- find first duplicate, cut after that
 check_string = "Fungal infection"
-
 for index in range(len(illness_list[2:])):
     if illness_list[index][0] == check_string and index > 0:
         illness_list = illness_list[:index]
         break
+
+# Reduce number of illnesses based on the blacklist
+blacklist = []
+with open("illness_blacklist.csv", newline='') as file:
+    reader = csv.reader(file)
+    blacklist = list(reader)[0]
+for element in blacklist:
+    for item in illness_list:
+        if item[0] == element:
+            illness_list.remove(item)
 
 # Make a list of all of the symptoms -- this will be used later
 symptom_list = []
@@ -40,6 +49,7 @@ for element in illness_list:
         symptom_list.append(symptom)
 # Remove duplicates (I don't know how it works, it just does)
 symptoms = list(dict.fromkeys(symptom_list))
+print(symptoms)
 
 # Find the element of greatest length in the array
 greatest = 0
@@ -62,6 +72,7 @@ for element in illness_list:
 
 # `illness_dict` compares each disease to their symptoms
 illness_dataframe = pd.DataFrame(data=illness_dict)
+illness_dataframe.to_csv('dataset.csv', index=False)
 
 #########################################
 # At this point, the dataset is ready.  #
@@ -77,7 +88,7 @@ def form_response(symptom):
     return [first_response,  second_response, third_response]
 
 # Automate the patterns for each symtom <---- HARD
-def form_patterns(symptom):
+def form_pattern(symptom):
     return "ToDo"
 
 
