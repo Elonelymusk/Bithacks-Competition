@@ -11,10 +11,6 @@ current_illness = "Fungal infection"
 illness_list = []
 symptom_list = []
 for row in dataframe.iterrows():
-    # Illness   ->  row[1][0]
-    # Symptom 1 ->  row[1][1]
-    # Symptom x ->  row[1][x]
-
     # Extract all symptoms
     illness = row[1][0]
     if illness == current_illness:
@@ -66,25 +62,38 @@ for element in illness_list:
 
 # `illness_dict` compares each disease to their symptoms
 illness_dataframe = pd.DataFrame(data=illness_dict)
-#print(illness_dataframe)
 
 #########################################
 # At this point, the dataset is ready.  #
 # Now to make the intents.json file.    #
 #########################################
 
-json_data = {}
+# Automate the responses for each symptom <---- Easy
+def form_response(symptom):
+    first_response = f"Ok, I've detected '{symptom}', anything else?"
+    second_response = f"Alright, it looks like you have '{symptom}', are you experiencing any other symptoms?"
+    third_response = f"So, it seems like you have '{symptom}', any other symptoms?"
 
+    return [first_response,  second_response, third_response]
+
+# Automate the patterns for each symtom <---- HARD
+def form_patterns(symptom):
+    return "ToDo"
+
+
+data_list = []
+# Put in JSON format
 for symptom in symptoms:
-    json_data[symptom] = {
-        "patterns": "ToDo",
-        "responses": "ToDo",
+    formatted_symptom = str(symptom).strip().replace("_", " ")
+    data_list.append({
+        "tag":  formatted_symptom,
+        "patterns": form_pattern(formatted_symptom),
+        "responses": form_response(formatted_symptom),
         "context_set": ""
-    }
+    })
 
 # Wrap the data in the "intents" tag
-json_data = {"intents": [json_data]} 
+json_data = {"intents": data_list}
 
-print(json_data)
 with open('intents.json', 'w') as outfile:
     json.dump(json_data, outfile)
