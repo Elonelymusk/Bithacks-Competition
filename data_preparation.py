@@ -105,7 +105,7 @@ def process_dataset():
     def form_pattern(symptom):
         return_list = []
         for i in range(4):
-            with open(f"symptoms{i}.txt", "r") as symptom_file:
+            with open(f"symptom_files/symptoms{i}.txt", "r") as symptom_file:
                 all_lines = symptom_file.readlines()
                 for line in all_lines:
                     line = line.replace('"', "").strip().replace("_", " ")
@@ -114,7 +114,7 @@ def process_dataset():
                     #print("symptom line -> ", str(symptom).strip().lower())
                     if str(line[0]).strip().lower() == str(symptom).strip().lower():
                         return_list = line[1:]
-        return return_list 
+        return return_list
 
     data_list = []
     # Put in JSON format

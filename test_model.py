@@ -1,7 +1,9 @@
+from data_preparation import process_dataset
 from nltk_lib import prep_model, build_model, response
 
 # Create the model
 print("Preparing the model...\n")
+process_dataset()
 prep = prep_model()
 
 words = prep[0]
