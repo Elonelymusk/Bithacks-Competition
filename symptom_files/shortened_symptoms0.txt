@@ -1,3 +1,4 @@
+quit, "No", "Not really", "Finished", "Done", "Nope"
 itching, "I've got a bad itch", "I'm really itchy", "I have an itch"
 nodal_skin_eruptions, "I've got rashes", "I have a rash", "My skin is red"
 shivering, "I've felt really cold", "I've been shivering", 'I have been shivering'
@@ -21,3 +22,6 @@ indigestion, "I have indigestion", "My stomach hurts", "It hurts when I eat"
 depression, "I have been depressed", "I am sad", "I am depressed"
 visual_disturbances, "I have been seeing things", "I am seeing things", "I see stuff"
 yellowish_skin, "My skin is yellowing", "My skin is yellow", "My skin is orange"
+family_history, "I have a family history of certain illnesses or allergies", "My family has a history of illnesses"
+red_spots_over_body, "I have red spots on my body", "I have red spots", "I am covered in red spots"
+fluid_overload, "I have lots of fluid", "I have too much water", "I produce lots of fluids" 

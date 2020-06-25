@@ -125,8 +125,6 @@ def questions(symptoms):
         #   -   Ask the user if this describes them
         #   -   Update accordingly
         #   -   Repeat
-        
-        # NB: CORRECTDICT IS EMPTY
 
         # Find most common symptom
         symptom_dict = {}
@@ -184,6 +182,5 @@ def questions(symptoms):
         print(str(i+1), ": ", decision_list[i])
     
     return decision_list
-            
-#questions(["skin_rash", "itching", "fatigue", "continuous_sneezing"])
+
 questions(start_chat())   
