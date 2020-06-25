@@ -8,13 +8,13 @@ from nltk.stem.lancaster import LancasterStemmer
 import json
 
 # Prepare the dataset and important variables
-def prep_model():
+def prep_yn_model():
     nltk.download('punkt')
 
     stemmer = LancasterStemmer()
 
     # Import our chatbot intents file
-    with open('intents.json') as json_data:
+    with open('yn.json') as json_data:
         intents = json.load(json_data)
 
     words = []
@@ -67,7 +67,7 @@ def prep_model():
     return [words, classes, train_x, train_y]
 
 # Build neural network
-def build_model(train_x, train_y):
+def build_yn_model(train_x, train_y):
     model = models.Sequential()
     model.add(layers.Flatten())
     model.add(layers.Dense(8, input_shape = [None,len(train_x[0])]))
@@ -79,7 +79,7 @@ def build_model(train_x, train_y):
     model.fit(train_x, train_y,batch_size= 8, epochs=1000)
 
     # I think it would be better just to build the model once and then load it later
-    model.save('built_model')
+    model.save('built_yn_model')
 
 # Tokenize the sentence and stem each word
 def clean_up_sentence(sentence):
@@ -106,7 +106,7 @@ def bow(sentence, words, show_details = False):
 context = {}
 ERROR_THRESHOLD = 0.25
 def classify(sentence, words, classes):
-    new_model = tf.keras.models.load_model('./built_model')
+    new_model = tf.keras.models.load_model('./built_yn_model')
     # Generate probabilities from the model
     results = new_model.predict(np.array([bow(sentence,words)]))[0]
     # Filter out predictions below a threshold
@@ -118,9 +118,9 @@ def classify(sentence, words, classes):
         return_list.append((classes[r[0]], r[1]))
     return return_list
 
-def response(words, classes, sentence, userID='123', show_details=False):
+def yn_response(words, classes, sentence, userID='123', show_details=False):
     results = classify(sentence, words, classes)
-    with open('intents.json') as json_data:
+    with open('yn.json') as json_data:
         intents = json.load(json_data)
     # If we have a classification then the matching intent tag
     if results:

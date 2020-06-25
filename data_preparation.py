@@ -8,7 +8,7 @@ def process_dataset():
     dataframe = pd.read_csv("symptoms_illness_dataset.csv")
 
     # 1st pass at cleaning the dataset -- put it in the right format
-    current_illness = "Fungal infection"
+    current_illness = "Quit"
     illness_list = []
     symptom_list = []
     for row in dataframe.iterrows():
@@ -28,7 +28,7 @@ def process_dataset():
     # 2nd pass at cleaning the dataset -- find first duplicate, cut after that
     check_string = "Fungal infection"
     for index in range(len(illness_list[2:])):
-        if illness_list[index][0] == check_string and index > 0:
+        if illness_list[index][0] == check_string and index > 1:
             illness_list = illness_list[:index]
             break
 

@@ -20,3 +20,5 @@ slurred_speech, "I have difficulties talking to others", "Other people stuggle t
 muscle_weakness, "I feel weaker than usual", "I feel like my muscles are weaker than usual", "I think I'm experiencing muscle_weakness"
 movement_stiffness, "I feel stiff", "My muscles can't relax", "My muscles cramp easily"
 pus_filled_pimples, "I can see a pastule", "I can feel a pastule", "I think I have a pus filled pimple"
+abdominal_pain, "My abdomen hurts", "I have a pain in my gut", "I have a pain in my abdomen"
+continuous_feel_of_urine, "I frequently feel like I need to wee", "I continuously feel like I need to go to the toilet", "I always feel urine"

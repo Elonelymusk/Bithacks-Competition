@@ -1,0 +1,13 @@
+{"intents": [
+    {"tag": "yes",
+     "patterns": ["yes", "true", "yeah",  "some of them", "yep"],
+     "responses": ["Yes - Okay.", "Yes - Alright.", "Yes - Hmm..."],
+     "context_set": ""
+    },
+    {"tag": "no",
+     "patterns": ["no", "wrong", "nope", "nah"],
+     "responses": ["No - Okay.", "No - Alright.", "No - Hmm..."],
+     "context_set": ""
+    }
+]
+}
