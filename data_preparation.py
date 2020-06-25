@@ -105,7 +105,7 @@ def process_dataset():
     def form_pattern(symptom):
         return_list = []
         for i in range(4):
-            with open(f"symptom_files/symptoms{i}.txt", "r") as symptom_file:
+            with open(f"symptom_files/shortened_symptoms{i}.txt", "r") as symptom_file:
                 all_lines = symptom_file.readlines()
                 for line in all_lines:
                     line = line.replace('"', "").strip().replace("_", " ")
@@ -132,3 +132,5 @@ def process_dataset():
 
     with open('intents.json', 'w') as outfile:
         json.dump(json_data, outfile)
+
+process_dataset()
