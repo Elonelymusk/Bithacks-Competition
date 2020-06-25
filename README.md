@@ -19,12 +19,12 @@ We could make a chatbot website, in which the user describes their symptoms to t
 - [ ] Make it look good.
 - [ ] Host the chatbot on a website (easy to do, but somewhat optional).
 * Dataset Processing:
-- [ ] Decide on whether we need to combine a few datasets (or create our own).
-- [ ] Keep the things we want in the dataset, remove whatever we don't want.
-- [ ] Find a way of converting the dataset to an intents.json file. **<---- One of the main challenges.**
+- [x] Decide on whether we need to combine a few datasets (or create our own).
+- [x] Keep the things we want in the dataset, remove whatever we don't want.
+- [x] Find a way of converting the dataset to an intents.json file. **<---- One of the main challenges.**
 * Nat. Language Model:
 - [x] Create a basic NLTK based Model.
-- [ ] Convert this model to use the new intents.json file.
+- [x] Convert this model to use the new intents.json file.
 - [ ] Optimize the model. **<---- One of the main challenges.**
 * Diagnosis Making:
 - [ ] Determine which illness the user is suffering from based on the symptoms. I'd suggest K-Nearest-Neighbors or K-Means algorithms. **<---- One of the main challenges.**
