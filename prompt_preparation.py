@@ -28,7 +28,7 @@ def process_dataset():
     # 2nd pass at cleaning the dataset -- find first duplicate, cut after that
     check_string = "Fungal infection"
     for index in range(len(illness_list[2:])):
-        if illness_list[index][0] == check_string and index > 3:
+        if illness_list[index][0] == check_string and index > 1:
             illness_list = illness_list[:index]
             break
 
@@ -64,8 +64,6 @@ def process_dataset():
     #        except IndexError:
     #            pass
     #    symptom_file.close()
-
-    illness_list.append(["Covid-19", 'high_fever', 'chills', 'breathlessness', 'fatigue', 'headache', 'loss_of_smell', 'runny_nose', 'vomiting', 'cough'])
 
     # Find the element of greatest length in the array
     greatest = 0
@@ -107,7 +105,7 @@ def process_dataset():
     def form_pattern(symptom):
         return_list = []
         for i in range(4):
-            with open(f"symptom_files/shortened_symptoms{i}.txt", "r") as symptom_file:
+            with open(f"symptom_files/symptoms{i}.txt", "r") as symptom_file:
                 all_lines = symptom_file.readlines()
                 for line in all_lines:
                     line = line.replace('"', "").strip().replace("_", " ")
@@ -132,7 +130,7 @@ def process_dataset():
     # Wrap the data in the "intents" tag
     json_data = {"intents": data_list}
 
-    with open('intents.json', 'w') as outfile:
+    with open('prompts.json', 'w') as outfile:
         json.dump(json_data, outfile)
 
 process_dataset()
