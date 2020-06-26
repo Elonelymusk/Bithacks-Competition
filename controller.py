@@ -181,9 +181,27 @@ def questions(symptoms):
     except:
         pass
     
-    for i in range(len(decision_list)):
-        print(str(i+1), ": ", decision_list[i])
+    # Provide some precautions
+    precaution_dataset = pd.read_csv('symptom_precaution.csv')
+
+    illnesses = precaution_dataset['Disease'].tolist()
+    precaution_1 = precaution_dataset['Precaution_1'].tolist()
+    precaution_2 = precaution_dataset['Precaution_2'].tolist()
+    precaution_3 = precaution_dataset['Precaution_3'].tolist()
+
+    list_of_precautions = []
+    for illness in decision_list:
+        precaution_list = []
+        for i in range(len(illnesses)):
+            if illnesses[i].strip() == illness.strip():
+                # Look for first precaution
+                precaution_list.append(precaution_1[i])
+                # Look for second precaution
+                precaution_list.append(precaution_2[i])
+                # Look for third precaution
+                precaution_list.append(precaution_3[i])
+        list_of_precautions.append(precaution_list)
     
-    return decision_list
+    return [decision_list, list_of_precautions]
 
 questions(start_chat())   
