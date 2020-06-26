@@ -1,3 +1,6 @@
+import tkinter as tk
+import time 
+
 import os.path
 import json
 from os import path
@@ -7,6 +10,21 @@ from yn_lib import prep_yn_model, build_yn_model, yn_response
 from data_preparation import process_dataset
 
 
+user_var_input = ""
+
+def chatbot_response(response):
+    InputBox.delete(first = 0, last = 10000)
+    TextBox.insert(tk.END, "Bot:" + response + "\n")
+
+def user_input():
+    #function called when the button is pressed
+    #Reads input in entry widget and prints onto text widget
+    global user_var_input
+    global go_var
+    user_var_input = InputBox.get()
+    InputBox.delete(first = 0, last = 10000)
+    TextBox.insert(tk.END, "User:" + user_var_input + "\n")
+    go_var.set(1)
 
 # Function to give a response to a symptom prompt
 def give_response(message):
@@ -50,20 +68,19 @@ def yes_no_response(message):
 # The chat loop
 def start_chat():
     symptom_list = []
-    with open("response_file.txt", "w") as response_file:
-        response_file.write("Hello, I am the CSFC Symptom Chatbot.\nMy aim is to diagnose the illness you are suffering from, based on the symptoms that you describe to me.\nDISCLAIMER: It is important to note that I am merely a work-in-progress and if you feel that you need to consult a doctor, do so.\n\nAnyway, please begin by describing the symptoms that you have.\n\n")
-        response_file.close()
+    message = "Hello, I am the CSFC Symptom Chatbot.\nMy aim is to diagnose the illness you are suffering from, based on the symptoms that you describe to me.\nDISCLAIMER: It is important to note that I am merely a work-in-progress and if you feel that you need to consult a doctor, do so.\n\nAnyway, please begin by describing the symptoms that you have.\n\n"
+    chatbot_response(message)
     chat_flag = True
     while chat_flag == True:
-        user_input = input(">>>     ")
-        response = give_response(user_input)
+        SendButton.wait_variable(go_var)
+        response = give_response(user_var_input)
         if response == None:
-            print("Sorry, I didn't understand that. Please try again.")
+            chatbot_response("Sorry, I didn't understand that. Please try again.\n")
         elif "quit" in response:
-            print("Okay, I'm going to ask you a few questions now.")
+            chatbot_response("Okay, I'm going to ask you a few questions now.\n")
             chat_flag = False
         else:
-            print(response)
+            chatbot_response(response)
             symptom = response.replace("'ve detected ", "").split("'")[1]
             if symptom not in symptom_list:
                 symptom_list.append(symptom)
@@ -148,10 +165,11 @@ def questions(symptoms):
         asked_list.append(greatest_symptom)
 
         # Ask whether the user has experienced any of the symptoms
-        print(ask_question(greatest_symptom.strip().replace("_", " ")))
-        user_input = input(">>>     ")
-        response = str(yes_no_response(user_input))
-        print(response)
+        msg = ask_question(greatest_symptom.strip().replace("_", " "))
+        chatbot_response(f"{msg}\n")
+        SendButton.wait_variable(go_var)
+        response = str(yes_no_response(user_var_input))
+        chatbot_response(f"{response}\n")
 
         # Add correct / incorrect tokens where necessary:
         if "no" in response.lower():
@@ -206,4 +224,30 @@ def questions(symptoms):
                 precaution_list.append(precaution_3[i])
         list_of_precautions.append(precaution_list)
     
-    return [decision_list, list_of_precautions]
+    chatbot_response("Here is a list (in order of likelyhood) of illnesses that you may be suffering from:\n")
+    for i in range(len(decision_list)):
+        chatbot_response(f"1: {decision_list[i]}\n")
+
+    chatbot_response("\nHere are some precautions I suggest you take for each case:\n")
+    for i in range(len(list_of_precautions)):
+        message = f"{decision_list[i]}: \n    *    {list_of_precautions[i][0]}\n    *    {list_of_precautions[i][1]}\n    *    {list_of_precautions[i][2]}"
+        chatbot_response(message)
+    
+
+root = tk.Tk()
+go_var = tk.IntVar()
+TextBox = tk.Text(root, height = 20, width = 70)
+TextBox.pack(side=tk.LEFT, fill=tk.Y)
+ScrollBar = tk.Scrollbar(root)
+ScrollBar.pack(side=tk.RIGHT, fill=tk.Y)
+InputBox = tk.Entry(root)
+InputBox.pack(side=tk.BOTTOM, fill=tk.X)
+
+SendButton = tk.Button(root, text="SEND", command = user_input)
+SendButton.pack(side=tk.BOTTOM)
+
+questions(start_chat())
+
+while True:
+    root.update_idletasks()
+    root.update()
