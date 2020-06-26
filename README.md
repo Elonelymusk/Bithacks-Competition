@@ -25,9 +25,9 @@ We could make a chatbot website, in which the user describes their symptoms to t
 * Nat. Language Model:
 - [x] Create a basic NLTK based Model.
 - [x] Convert this model to use the new intents.json file.
-- [ ] Optimize the model. **<---- One of the main challenges.**
+- [x] Optimize the model. **<---- One of the main challenges.**
 * Diagnosis Making:
-- [ ] Determine which illness the user is suffering from based on the symptoms. I'd suggest K-Nearest-Neighbors or K-Means algorithms. **<---- One of the main challenges.**
+- [x] Determine which illness the user is suffering from based on the symptoms. I'd suggest K-Nearest-Neighbors or K-Means algorithms. **<---- One of the main challenges.**
 
 As I see it, the website can be improved upon at any time. The `Nat. Language Model` cannot be improved until the `intents.json` file has been made. The diagnosis making model could be worked upon by using the dataset we decide upon for testing.
 
