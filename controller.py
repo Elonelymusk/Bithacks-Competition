@@ -62,22 +62,19 @@ def start_chat():
         else:
             print(response)
             symptom = response.replace("'ve detected ", "").split("'")[1]
-            symptom_list.append(symptom)
-    print(symptom_list)
+            if symptom not in symptom_list:
+                symptom_list.append(symptom)
     return symptom_list
 
 # Ask a question
 def ask_question(symptom):
-    with open("intents.json", "r") as json_file:
+    with open("prompts.json", "r") as json_file:
         intents = json.load(json_file)
         intents_list = intents['intents']
         symp_dict = {}
         for element in intents_list:
-            #print("symptom -->", symptom)
-            #print(element['tag'])
             if symptom == element['tag']:
                 symp_dict = element
-        print(symp_dict)
         patterns = symp_dict['patterns']
         for i in range(len(patterns)):
             if i != len(patterns) - 1:
@@ -131,7 +128,7 @@ def questions(symptoms):
         for illness in correct_dict:
             contents = list(dataframe[illness])
             for symptom in contents:
-                if symptom == "None" or symptom in symptoms or symptom in asked_list:
+                if symptom == "None" or symptom.strip() in symptoms or symptom in asked_list:
                     pass
                 elif symptom in symptom_dict:
                     symptom_dict[symptom] += 1
@@ -144,6 +141,8 @@ def questions(symptoms):
                 greatest_value = symptom_dict[b_symptom]
                 greatest_symptom = b_symptom
         
+        asked_list.append(greatest_symptom)
+
         # Ask whether the user has experienced any of the symptoms
         print(ask_question(greatest_symptom.strip().replace("_", " ")))
         user_input = input(">>>     ")
@@ -161,7 +160,6 @@ def questions(symptoms):
                 contents = list(dataframe[correct_illness])
                 if greatest_symptom in contents:
                     correct_dict[correct_illness] += 1
-        asked_list.append(greatest_symptom)
 
     # Make decision and return information based on this - return the illnesses in order of likelyhood
     decision_dict = correct_dict
@@ -173,11 +171,16 @@ def questions(symptoms):
         greatest_val = -100
         greatest_illness = ""
         for dec_illness in decision_dict:
-            if decision_dict[dec_illness] > greatest_val and dec_illness not in decision_list:
+            if decision_dict[dec_illness] > greatest_val and dec_illness not in decision_list and dec_illness != "Quit":
                 greatest_val = decision_dict[dec_illness]
                 greatest_illness = dec_illness
         decision_list.append(greatest_illness)
 
+    try:
+        decision_list = decision_list[:3]
+    except:
+        pass
+    
     for i in range(len(decision_list)):
         print(str(i+1), ": ", decision_list[i])
     

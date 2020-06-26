@@ -1,6 +1,6 @@
 dischromic _patches, "dischromic patch", "brown spot", "skin lesion"
 patches_in_throat, " patches in throat", "white dots in throat", " patches on tonsils"
-irregular_sugar_level, "dizzy", "not eaten much", "tired"
+irregular_sugar_level, "dizzy", "not eaten much",
 dehydration, "thristy", "dry lips", "dehydrated", "dizzy"
 loss_of_balance, "struggling to walk", "dizzy", "room is spinning"
 acidity, "chest is burning", "stuggling to swallow", " burning in throat" 

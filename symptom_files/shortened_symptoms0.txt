@@ -1,4 +1,4 @@
-quit, "No", "Not really", "Finished", "Done", "Nope"
+quit, "No", "Finished", "Done", "Nope"
 itching, "itch", "itchy", "very itchy"
 nodal_skin_eruptions, "skin spots", "skin blotches", "skin"
 shivering, "very cold", "shivering", "shaking"
